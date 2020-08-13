@@ -1,5 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
 
+const dotenv = require("dotenv");
+
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -68,7 +70,16 @@ Encore
 
     // uncomment if you use API Platform Admin (composer req api-admin)
     .enableReactPreset()
-    //.addEntry('admin', './assets/js/admin.js')
+//.addEntry('admin', './assets/js/admin.js')
 ;
+Encore.configureDefinePlugin(options => {
+    const env = dotenv.config();
 
+    if (env.error) {
+        throw env.error;
+    }
+    options["process.env"].API_URL = process.env.API_URL;
+})
 module.exports = Encore.getWebpackConfig();
+
+
