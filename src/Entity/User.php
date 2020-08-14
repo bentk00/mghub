@@ -10,9 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ApiResource(
- *     normalizationContext={groups = {"users_read"}}
- * )
+ * @ApiResource
  */
 class User implements UserInterface
 {
