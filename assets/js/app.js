@@ -8,6 +8,13 @@ import SecondNavbar from "./components/SecondNavbar";
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
+import ReactDOM from 'react-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faCheckSquare, faCoffee)
+
 const App = () => {
     return <>
         <Navbar/>
@@ -15,7 +22,7 @@ const App = () => {
         <div className="container">
             <div className="row mt-5">
                 <div className="col-6">
-                    <h1>Welcome to Mg hub.</h1>
+                    <h1>Welcome to Mg hub. <i className="fab fa-xbox"/></h1>
                     <p>The moroccan gamers hub</p>
                 </div>
                 <div className="col-6">

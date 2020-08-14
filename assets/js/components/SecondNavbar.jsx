@@ -1,4 +1,5 @@
 import React from 'react';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SecondNavbar(props) {
 
@@ -9,22 +10,41 @@ function SecondNavbar(props) {
                     <div className="collapse navbar-collapse" id="navbarColor01">
                         <ul className="navbar-nav">
                             <li className="nav-item mr-5">
-                                <a className="nav-link" href="#">PS5</a>
+                                <a className="nav-link" href="#">
+                                    <i className="mr-1"><FontAwesomeIcon icon={['fab', 'playstation']}/></i>
+                                    PS5
+                                </a>
                             </li>
                             <li className="nav-item mr-5">
-                                <a className="nav-link" href="#">XBOX SERIES X</a>
+                                <a className="nav-link" href="#">
+                                    <i className="mr-1"><FontAwesomeIcon icon={['fab', 'xbox']} /></i>
+                                    SERIES X
+                                </a>
                             </li>
                             <li className="nav-item mr-5">
-                                <a className="nav-link" href="#">PS4</a>
+                                <a className="nav-link" href="#">
+                                    <i className="mr-1"><FontAwesomeIcon icon={['fab', 'playstation']}/></i>
+                                    PS4
+                                </a>
                             </li>
                             <li className="nav-item mr-5">
-                                <a className="nav-link" href="#">XBOX ONE</a>
+                                <a className="nav-link" href="#">
+                                    <i className="mr-1"><FontAwesomeIcon icon={['fab', 'xbox']} /></i>
+                                    ONE / ONE X
+                                </a>
+                            </li>
+                            <li className="nav-item mr-5">
+                                <a className="nav-link" href="#">
+                                    <i className="mr-1"><FontAwesomeIcon icon={['fab', 'windows']} /></i>
+                                    PC Master race
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">PC</a>
+                                <a className="nav-link" href="#">
+                                    <i className="mr-1"><FontAwesomeIcon icon={['fab', 'steam']} /></i>
+                                    Steam
+                                </a>
                             </li>
-
-
                         </ul>
                     </div>
                 </div>
