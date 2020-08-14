@@ -11,6 +11,9 @@ import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/users/RegisterPage";
 import AuthentificationApi from "./services/AuthentificationApi";
 import AuthContext from "./context/AuthContext";
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
+import LoginPage from "./pages/users/LoginPage";
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
@@ -40,11 +43,13 @@ const App = () => {
                 <main className="container pt-5">
                     <Switch>
                         <Route path="/register" component={RegisterPage}/>
+                        <Route path="/login" component={LoginPage}/>
                         <Route path="/" component={HomePage}/>
                     </Switch>
                 </main>
 
             </HashRouter>
+            <ToastContainer/>
         </AuthContext.Provider>
     </>
 }

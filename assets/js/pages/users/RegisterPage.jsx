@@ -3,6 +3,7 @@ import Field from "../../components/forms/Field";
 import mg1 from '../../../images/mg1.png'
 import {Link} from "react-router-dom";
 import UsersApi from "../../services/UsersApi";
+import {toast} from "react-toastify";
 
 const RegisterPage = props => {
     const [user, setUser] = useState({
@@ -43,6 +44,9 @@ const RegisterPage = props => {
             setErrors({});
             try {
                 await UsersApi.register(user);
+                toast.success("Registration success !")
+                toast.dark("Mer7ba bik f' Mg hub :)")
+                props.history.replace("/login")
             } catch (error) {
                 const {violations} = error.response.data;
                 if (violations) {
