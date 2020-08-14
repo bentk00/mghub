@@ -5,11 +5,11 @@ const HomePage = () => {
         <>
             <div className="container">
                 <div className="row mt-5">
-                    <div className="col-6">
+                    <div className="col-md-6">
                         <h1>Welcome to Mg hub. <i className="fab fa-xbox"/></h1>
                         <p>The moroccan gamers hub</p>
                     </div>
-                    <div className="col-6">
+                    <div className="col-md-6">
                         <h3>App in construction...</h3>
                         <p>Soon, wait us</p>
                     </div>
