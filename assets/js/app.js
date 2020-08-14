@@ -34,9 +34,9 @@ const App = () => {
             isAuthenticated, setIsAuthenticated
         }
         }>
-            <Navbar/>
-            <SecondNavbar/>
             <HashRouter>
+                <Navbar/>
+                <SecondNavbar/>
                 <main className="container pt-5">
                     <Switch>
                         <Route path="/register" component={RegisterPage}/>
