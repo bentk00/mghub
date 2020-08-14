@@ -70,6 +70,10 @@ Encore
 
     // uncomment if you use API Platform Admin (composer req api-admin)
     .enableReactPreset()
+
+    .configureFilenames({
+        images: '[path][name].[hash:8].[ext]',
+    })
 //.addEntry('admin', './assets/js/admin.js')
 ;
 Encore.configureDefinePlugin(options => {

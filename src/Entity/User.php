@@ -2,12 +2,17 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ApiResource(
+ *     normalizationContext={groups = {"users_read"}}
+ * )
  */
 class User implements UserInterface
 {
@@ -20,6 +25,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message="Email is required")
+     * @Assert\Email(message="The email's format is invalid")
      */
     private $email;
 
@@ -36,11 +43,19 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="First name is required")
+     * @Assert\Length(min = "3", max ="80",
+     *     minMessage="Must be between 3 and 80 characters",
+     *     maxMessage="Must be between 3 and 80 characters")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Last name is required")
+     * @Assert\Length(min = "3", max ="80",
+     *     minMessage="Must be between 3 and 80 characters",
+     *     maxMessage="Must be between 3 and 80 characters")
      */
     private $lastName;
 

@@ -1,45 +1,54 @@
-import React from 'react';
-// any CSS you import will output into a single css file (app.css in this case)
+import React, {useState} from 'react';
 import '../css/app.css';
 import ReactDom from "react-dom";
 import Navbar from "./components/Navbar";
 import SecondNavbar from "./components/SecondNavbar";
-
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {fab} from '@fortawesome/free-brands-svg-icons'
+import {faCheckSquare, faCoffee} from '@fortawesome/free-solid-svg-icons'
+import {HashRouter, Route, Switch, withRouter} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import RegisterPage from "./pages/users/RegisterPage";
+import AuthentificationApi from "./services/AuthentificationApi";
+import AuthContext from "./context/AuthContext";
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
-import ReactDOM from 'react-dom'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
-
 library.add(fab, faCheckSquare, faCoffee)
 
-const App = () => {
-    return <>
-        <Navbar/>
-        <SecondNavbar/>
-        <div className="container">
-            <div className="row mt-5">
-                <div className="col-6">
-                    <h1>Welcome to Mg hub. <i className="fab fa-xbox"/></h1>
-                    <p>The moroccan gamers hub</p>
-                </div>
-                <div className="col-6">
-                    <h3>App in construction...</h3>
-                    <p>Soon, wait us</p>
-                </div>
-            </div>
-            <div className="row mt-5">
-                <div className="col">
-                    <h5>Thanks for waiting.</h5>
-                    <p>Dev team: Younes BEN.</p>
-                </div>
+AuthentificationApi.setup();
 
-            </div>
-        </div>
+const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
+
+imagesContext.keys().forEach(imagesContext);
+
+const App = () => {
+    imagesContext.keys().forEach(imagesContext);
+
+    const [isAuthenticated, setIsAuthenticated] = useState(AuthentificationApi.isAuthenticated());
+
+    const NavbarWithRouter = withRouter(Navbar);
+
+    return <>
+        <AuthContext.Provider value={{
+            isAuthenticated, setIsAuthenticated
+        }
+        }>
+            <Navbar/>
+            <SecondNavbar/>
+            <HashRouter>
+                <main className="container pt-5">
+                    <Switch>
+                        <Route path="/register" component={RegisterPage}/>
+                        <Route path="/" component={HomePage}/>
+                    </Switch>
+                </main>
+
+            </HashRouter>
+        </AuthContext.Provider>
     </>
 }
+
 
 const rootElement = document.querySelector('#app');
 ReactDom.render(<App/>, rootElement);
