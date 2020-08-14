@@ -23,11 +23,11 @@ const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ic
 imagesContext.keys().forEach(imagesContext);
 
 const App = () => {
-    imagesContext.keys().forEach(imagesContext);
 
     const [isAuthenticated, setIsAuthenticated] = useState(AuthentificationApi.isAuthenticated());
 
     const NavbarWithRouter = withRouter(Navbar);
+    const SecondNavbarWithRouter = withRouter(SecondNavbar);
 
     return <>
         <AuthContext.Provider value={{
@@ -35,8 +35,8 @@ const App = () => {
         }
         }>
             <HashRouter>
-                <Navbar/>
-                <SecondNavbar/>
+                <NavbarWithRouter/>
+                <SecondNavbarWithRouter/>
                 <main className="container pt-5">
                     <Switch>
                         <Route path="/register" component={RegisterPage}/>
