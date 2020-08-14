@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Field from "../../components/forms/Field";
 import mg1 from '../../../images/mg1.png'
 import {Link} from "react-router-dom";
-import AuthentificationApi from "../../services/AuthentificationApi";
+import UsersApi from "../../services/UsersApi";
 
 const RegisterPage = props => {
     const [user, setUser] = useState({
@@ -42,7 +42,7 @@ const RegisterPage = props => {
             setPasswordOk(true);
             setErrors({});
             try {
-                await AuthentificationApi.register(user);
+                await UsersApi.register(user);
             } catch (error) {
                 const {violations} = error.response.data;
                 if (violations) {

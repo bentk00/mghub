@@ -42,8 +42,6 @@ const authenticate = credentials => {
         });
 }
 
-const register = user => axios.post("https://localhost:8000/api/users", user);
-
 const logout = () => {
     window.localStorage.removeItem("authToken");
     delete axios.defaults.headers["Authorization"];
@@ -53,6 +51,5 @@ export default {
     setup,
     authenticate,
     isAuthenticated,
-    register,
     logout
 }
