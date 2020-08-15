@@ -40,7 +40,9 @@ const App = () => {
             <HashRouter>
                 <NavbarWithRouter/>
                 <SecondNavbarWithRouter/>
-                <main className="container pt-5">
+                <main className="container pt-5" style={{
+                    marginTop: '100px'
+                }}>
                     <Switch>
                         <Route path="/register" component={RegisterPage}/>
                         <Route path="/login" component={LoginPage}/>

@@ -5,7 +5,9 @@ function SecondNavbar(props) {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" style={{
+                marginTop: '70px'
+            }}>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#secNavBar"
                         aria-controls="secNavBar" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"/>
