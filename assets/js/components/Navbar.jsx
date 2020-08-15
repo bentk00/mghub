@@ -32,7 +32,7 @@ function Navbar(props) {
                                 Events</a>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            <a className="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="true" aria-expanded="false">More</a>
                             <div className="dropdown-menu">
                                 <a className="dropdown-item" href="#">Action</a>
@@ -45,10 +45,10 @@ function Navbar(props) {
                     </ul>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
+                            <Link className="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/register">Register</Link>
                         </li>
                         <li className="nav-item mr-1">
-                            <Link className="nav-link" to="/login">Login</Link>
+                            <Link className="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/login">Login</Link>
                         </li>
                     </ul>
                 </div>
